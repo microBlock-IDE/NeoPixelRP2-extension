@@ -5,7 +5,7 @@ Blockly.Python['neopixel_setup'] = function(block) {
   Blockly.Python.definitions_['from_machine_import_pin'] = 'from machine import Pin';
   Blockly.Python.definitions_['from_neopixel_import_neopixel'] = 'from neopixel import NeoPixel';
 
-  var code = `strip = NeoPixel(${value_length}, 0, ${value_pin}, "GRB"); strip.brightness(50 * 255 / 100)\n`;
+  var code = `strip = NeoPixel(${value_length}, 0, ${value_pin}, "GRB"); strip.brightness(int(50 * 255 / 100))\n`;
   return code;
 };
 
@@ -91,6 +91,6 @@ Blockly.Python['neopixel_rainbow'] = function(block) {
 
 Blockly.Python['neopixel_set_brightness'] = function(block) {
   var value_brightness = Blockly.Python.valueToCode(block, 'brightness', Blockly.Python.ORDER_ATOMIC);
-  var code = `strip.brightness(${value_brightness})\n`;
+  var code = `strip.brightness(int(${value_brightness} * 255 / 100))\n`;
   return code;
 };
