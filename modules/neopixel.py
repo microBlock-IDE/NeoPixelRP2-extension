@@ -46,7 +46,7 @@ def sk6812():
 # 'G' on index 0: 0b00 ^ 0b11 -> 0b11 (3), just as we wanted.
 # Same hold for every other index (and - 1 at the end for 3 letter strings).
 
-class Neopixel:
+class NeoPixel:
     def __init__(self, num_leds, state_machine, pin, mode="RGB", delay=0.0001):
         self.pixels = array.array("I", [0 for _ in range(num_leds)])
         self.mode = set(mode)   # set for better performance
